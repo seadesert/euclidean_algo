@@ -4,6 +4,7 @@ b = abs(int(input("Enter value of b: ")))
 
 _a = a
 _b = b
+stack = []
 # Swap numbers if first input is smaller the second input
 if a < b:
     a, b = b, a
@@ -11,6 +12,9 @@ if a < b:
 # Case 1: If smaller input divides the larger input
 if a % b == 0:
     gcd = min([a, b])
+    q = a // b
+    r = a % b
+    print(f"{a} = {b} * {q} + {r}")
     print(f"GCD({_a}, {_b}) = {gcd}")
 else:
     # Case 2: If smaller input does not divides the larger input
@@ -19,6 +23,8 @@ else:
         q = a // b
         r = a % b
         print(f"{a} = {b} * {q} + {r}")
+        # Push the equation to stack (For finding suitable x and y)
+        stack.append([a, b, q, r])
         a = b
         b = r
         if r == 0:
