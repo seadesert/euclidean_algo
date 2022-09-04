@@ -4,7 +4,6 @@ b = abs(int(input("Enter value of b: ")))
 
 _a = a
 _b = b
-stack = []
 # Swap numbers if first input is smaller the second input
 if a < b:
     a, b = b, a
@@ -20,8 +19,6 @@ else:
         q = a // b
         r = a % b
         print(f"{a} = {b} * {q} + {r}")
-        # Push the equation to stack (For finding suitable x and y)
-        stack.append([a, b, q, r])
         a = b
         b = r
         if r == 0:
